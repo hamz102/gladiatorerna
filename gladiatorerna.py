@@ -12,17 +12,40 @@ print("Marcus står redo, hans blick är fast besluten när han tar ett steg fra
 print("Striden kan börja.")
 
 # Spelearen kan anfalla
-msvcrt.getch()
-strid = 1
-while strid:
-    
+input("TRYCK PÅ ENTER")             # Väntar på att spelaren trycker på enter. Ingen koppling med while
+
+strid = True
+while strid == True:
     dice = random.randint(1,10)
+    print (dice)
+    
+    if (dice <= 5):
+        resultat = "Miss"
+        print (resultat, "du har missat det är hans attack nu")
+    elif dice > 5:
+        resultat = "Träff"
+        print (resultat, "bra du har minskat två av hans hälsopoöng det är hans attack nu ")
+    
+    strid  = False
+if not strid == False:
+    print("Nu är hans tur nu att attackera 😥 ")
+if dice <= 5:
+    print("han har 8 hälsopoöng och han kommer att attackera dig nu")
+    elese:
+        print("han har 10 hälsopoöng och kommer att attackera dig nu")
 
-    if dice <= 3:
-     resultat = "miss"
-    elif dice > 3:
-     resultat = "träff"
 
+verktyg1 = input("välj ett siffra 1, 2, 3: ")
+if verktyg1 == 1:
+     print("han kommer att attackera dig med ett pistol")
+elif verktyg1 == 2:
+    print("han kommer att attackera dig med svärd")
+elif verktyg1 == 3:
+    print("Du har bra tur han kommer att attackera dig med sina händer")
+    else:
+    print("Ogiltigt val, försök igen.")
 # Gör att motståanden kan anfalla
+
+
 
 # presentera vem som vann
