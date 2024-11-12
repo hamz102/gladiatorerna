@@ -3,7 +3,7 @@ import time
 import sys
 
 def avsluta_spelet():
-    print("Du fick Knockout avsluta spelet")
+    print("Du fick Knockout! Spelet avslutas.")
     sys.exit()
 
 # Starta hälsopoäng
@@ -19,8 +19,9 @@ print("Marcus står redo, hans blick är fast besluten när han tar ett steg fra
 print("Striden kan börja.")
 
 # Spelet börjar
-input("TRYCK PÅ ENTER FÖR ATT PÅBÖRJA SPELET: ") 
+input("TRYCK PÅ ENTER FÖR ATT PÅBÖRJA SPELET: ")
 
+# Stridsloopen
 strid = True
 while strid:
     # Din attack
@@ -29,11 +30,10 @@ while strid:
     dice = random.randint(1, 10)
     print("Du kastar tärningen och får:", dice)
     
-    if (dice < 4 and dice < 10 ):
+    if dice < 4:
         print("Miss! Du missade din attack. Nu är det Marcus tur att attackera.")
-    if dice == 10:
+    elif dice == 10:
         avsluta_spelet()
- 
     else:
         print("Träff! Du träffade Marcus och han förlorar 2 hälsopoäng.")
         hans_hälsopoäng -= 2
@@ -41,20 +41,21 @@ while strid:
     
     # Kontrollera om Marcus har förlorat
     if hans_hälsopoäng <= 0:
-        print("Du vann striden! Marcus har ing(a hälsopoäng kvar.")
+        print("Du vann striden! Marcus har inga hälsopoäng kvar.")
         break
- 
+
     # Marcus' attack
-    input("TRYCK PÅ ENTER FÖR ATT LÅTA MARCUS ATTACKERA: ") 
+    input("TRYCK PÅ ENTER FÖR ATT LÅTA MARCUS ATTACKERA: ")
     print("Marcus tur att anfalla!")
     time.sleep(1)
     dice1 = random.randint(1, 10)
     print("Marcus kastar tärningen och får:", dice1)
     
-    if (dice1 < 4 and dice1 < 10):
-        print("Miss Marcus missade sin attack.")
-    if dice == 10:
-         avsluta_spelet()
+    if dice1 < 4:
+        print("Miss! Marcus missade sin attack.")
+    elif dice1 == 10:
+        print("Marcus fick Knockout! Spelet avslutas.")
+        break
     else:
         print("Träff! Marcus träffade dig och du förlorar 2 hälsopoäng.")
         ditt_hälsopoäng -= 2
